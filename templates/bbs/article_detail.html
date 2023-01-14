@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ article.id }}の投稿詳細ページ</h1>
+    <div class="container">
+      <p>{{ article.author }}：{{ article.created_at }}</p>
+      <p>{{ article.content }}</p>
+      <!-- ユーザー情報がその投稿のものと一致する場合 -->
+      {% if request.user.id == object.author_id %}
+        <p><a href='{% url "bbs:update" article.pk %}'>編集</a></p>
+        <p><a href='{% url "bbs:delete" article.pk %}'>削除</a></p>
+      {% endif %}
+    </div>
+    <p><a href='{% url "bbs:index" %}'>一覧ページへ戻る</a></p>
+{% endblock %}

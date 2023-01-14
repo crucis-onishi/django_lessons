@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>投稿の{{ object|yesno:'編集,新規作成'}}</h1><!-- 新規と編集で表示を変更 -->
+
+<form action='' method='post'>{% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>{{ object|yesno:'更新,作成'}}</button><!-- 新規と編集で表示を変更 -->
+</form>
+<div>
+  <button onclick='JavaScript:history.back()'>戻る</button>
+</div>
+
+{% endblock %}

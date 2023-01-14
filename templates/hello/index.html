@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Djangoを使ってみよう！</title>
+  </head>
+  <body>
+    <h1>モデルからデータを取り出して表示してみよう</h1>
+    {% for article in object_list %}
+      <p>{{ article.content }}</p>
+    {% endfor %}
+  </body>
+</html>
